@@ -8,86 +8,6 @@
 <meta http-equiv="Cache-Control" content="no-siteapp">
 <meta name="apple-mobile-web-app-title" content="AChengLinux">
 <meta name="google" value="notranslate">
-<style>
-/* ===== 布局调整：标题和导航在一行，搜索框换到下一行 ===== */
-header .layout {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-/* ===== 导航链接修复：确保可点击 ===== */
-header nav {
-  position: relative;
-  z-index: 10000;
-  pointer-events: auto;
-}
-header nav a {
-  pointer-events: auto;
-  display: inline-block;
-}
-
-/* ===== 美化后的搜索框样式（横排字体，输入框和按钮完美一行） ===== */
-.search-baidu {
-  position: relative;
-  z-index: 9999;
-  pointer-events: auto;
-  width: 320px;                 /* 宽度增加，确保输入框和按钮可以并排 */
-  min-width: 280px;             /* 防止过小挤压 */
-  margin: 1px 0 1px 0;          /* 上间距使按钮与搜索框分开，下间距稍小 */
-  font-family: inherit;
-}
-.search-baidu input,
-.search-baidu button {
-  pointer-events: auto;
-  border-radius: 20px;          /* 圆角统一 */
-}
-.search-baidu h4 {
-  margin: 0 0 8px 0;
-  font-weight: 500;
-  font-size: 1.1em;
-  color: #555;
-}
-.search-baidu form {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;            /* 强制不换行，保证横排 */
-  gap: 8px;                     /* 输入框和按钮之间的间距 */
-}
-.search-baidu input[type="text"] {
-  flex: 1 1 auto;               /* 自动伸缩，填满剩余空间 */
-  min-width: 120px;             /* 允许适当缩小，但保留最小宽度 */
-  padding: 8px 15px;
-  border: 1px solid #aaa;
-  font-size: 1em;
-  background: white;
-  outline: none;
-  color: #333;
-  transition: border-color 0.2s;
-}
-.search-baidu input[type="text"]:focus {
-  border-color: #666;
-}
-.search-baidu button {
-  padding: 8px 20px;            /* 水平内边距减小，避免按钮过宽 */
-  background-color: transparent;
-  border: 1px solid #aaa;
-  cursor: pointer;
-  font-size: 1em;
-  color: #ffffff;                  /* 深色文字，适应浅色/深色背景 */
-  white-space: nowrap;          /* 防止按钮文字换行 */
-  transition: background-color 0.2s, border-color 0.2s;
-}
-.search-baidu button:hover {
-  background-color: rgba(0,0,0,0.05);
-  border-color: #666;
-}
-.search-baidu p.note {
-  font-size: 0.9em;
-  color: #666;
-  margin-top: 5000px;
-}
-</style>
 <div id="stage">
     <article class="step-1">
         <div class="step-1-in">
@@ -95,24 +15,60 @@ header nav a {
                 <header>
                     <div class="layout">
                         <h1>AChengLinux</h1>
-                        <nav>
-                            <a href="about.html">公告</a>               
+                        <nav><a href="about.html">公告</a>               
                             <a href="https://www.ug.link/acheng9616" class="login-link">我的服务器</a>     
-                            <a href="https://wiki.acheng9616.com/" class="login-link">Wiki</a>
-                        </nav>
-                        <!-- 搜索引擎区块：宽度适中，输入框和按钮完美横排 -->
-                        <div class="search-baidu">
-                          <form action="https://www.baidu.com/s" method="get" target="_blank">
-                            <input type="text" name="wd" placeholder="输入关键词..." required>
-                            <button type="submit">搜索</button>
-                          </form>
-                        </div>
+                             <a href="https://wiki.acheng9616.com/" class="login-link">Wiki</a></nav>
+                             <style>
+/* 搜索栏区块样式 - 极简风格，匹配原网站 */
+.search-baidu {
+  margin: 30px 0;          /* 与上下内容的间距 */
+  font-family: inherit;    /* 继承你网站的字体 */
+}
+.search-baidu h4 {
+  margin: 0 0 10px 0;      /* 标题间距 */
+  font-weight: bold;
+  font-size: 1.2em;        /* 与“关于我”等标题大小相近 */
+}
+.search-baidu form {
+  display: flex;           /* 输入框和按钮并排 */
+  align-items: center;
+}
+.search-baidu input[type="text"] {
+  flex: 1;                 /* 输入框自动占满剩余宽度 */
+  padding: 8px;
+  border: 1px solid #999;  /* 简单灰色边框，无圆角 */
+  font-size: 1em;
+  background: white;
+}
+.search-baidu button {
+  padding: 8px 15px;
+  margin-left: 10px;
+  background-color: #eee;  /* 浅灰背景，类似原生按钮 */
+  border: 1px solid #999;
+  cursor: pointer;
+  font-size: 1em;
+}
+.search-baidu p.note {
+  font-size: 0.9em;        /* 与“注意：所有舆论…”类似的辅助文字 */
+  color: #666;
+  margin-top: 5px;
+}
+</style>
+
+<div class="search-baidu">
+  <h4>搜索引擎</h4>
+  <form action="https://www.baidu.com/s" method="get" target="_blank">
+    <input type="text" name="wd" placeholder="输入关键词..." required>
+    <button type="submit">搜索</button>
+  </form>
+</div>
                     </div>
                 </header>
                 <h2><span class="line line-1">我系<span class="moji-1">ACheng</span>啊</span> 
                   <span class="line line-2">识得唔识得啊</span></h2><i class="bg"></i> <i class="hr"></i>
                 <div class="shell-box"><i class="shell-shadow"></i> <i class="shell"><span></span></i></div><a
                     class="link-reg" href="https://wiki.acheng9616.com/">❤️需要赞助</a><i class="light"></i>
+</div>
             </div>
         </div>
     </article>
@@ -151,8 +107,8 @@ header nav a {
                        <p>ACheng9616@gmail.com</p>
                     </li>
                  </a>
-            </ul>
-        </div><i class="after"></i>
+                   </ul>
+               </div><i class="after"></i>
     </article>
     <article class="step-3">
         <h3 class="ui-h ui-h-2">看什么看，没东西啦</h3>
@@ -219,7 +175,8 @@ header nav a {
             <p>一切的开端，梦的延续</p>
         </div>
         <div class="layout">
-            <div class="l"> <a href="index.htm">BY AChengLinux 粤ICP备2025416424号</a>
+            <div class="l"> <a href="index.htm">BY AChengLinux 粤ICP备2025416424号
+                
             </div>
             <div class="r"><a href="about.html#/about" target="_blank">阿成个人介绍</a></div>
         </div>
