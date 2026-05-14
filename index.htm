@@ -21,71 +21,86 @@ header nav {
   position: relative;
   z-index: 10000;
   pointer-events: auto;
+  margin-left: auto;
 }
 header nav a {
   pointer-events: auto;
   display: inline-block;
 }
 
-/* ===== 美化后的搜索框样式（横排字体，输入框和按钮完美一行） ===== */
+/* ===== 搜索框：增长，按钮合并为放大镜图标 ===== */
 .search-baidu {
   position: relative;
   z-index: 9999;
   pointer-events: auto;
-  width: 320px;                 /* 宽度增加，确保输入框和按钮可以并排 */
-  min-width: 280px;             /* 防止过小挤压 */
-  margin: 1px 0 1px 0;          /* 上间距使按钮与搜索框分开，下间距稍小 */
+  width: 600px;
   font-family: inherit;
 }
 .search-baidu input,
 .search-baidu button {
   pointer-events: auto;
-  border-radius: 20px;          /* 圆角统一 */
-}
-.search-baidu h4 {
-  margin: 0 0 8px 0;
-  font-weight: 500;
-  font-size: 1.1em;
-  color: #555;
+  border: 1px solid #aaa;
+  background: white;
 }
 .search-baidu form {
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;            /* 强制不换行，保证横排 */
-  gap: 8px;                     /* 输入框和按钮之间的间距 */
+  flex-wrap: nowrap;
 }
 .search-baidu input[type="text"] {
-  flex: 1 1 auto;               /* 自动伸缩，填满剩余空间 */
-  min-width: 120px;             /* 允许适当缩小，但保留最小宽度 */
+  flex: 1;
   padding: 8px 15px;
-  border: 1px solid #aaa;
   font-size: 1em;
-  background: white;
   outline: none;
   color: #333;
+  border-right: none;
+  border-radius: 20px 0 0 20px;
   transition: border-color 0.2s;
 }
 .search-baidu input[type="text"]:focus {
   border-color: #666;
 }
 .search-baidu button {
-  padding: 8px 20px;            /* 水平内边距减小，避免按钮过宽 */
-  background-color: transparent;
-  border: 1px solid #aaa;
+  padding: 8px 14px;
   cursor: pointer;
-  font-size: 1em;
-  color: #ffffff;                  /* 深色文字，适应浅色/深色背景 */
-  white-space: nowrap;          /* 防止按钮文字换行 */
-  transition: background-color 0.2s, border-color 0.2s;
+  font-size: 1.1em;
+  border-left: none;
+  border-radius: 0 20px 20px 0;
+  background: white;
+  transition: background-color 0.2s;
 }
 .search-baidu button:hover {
-  background-color: rgba(0,0,0,0.05);
-  border-color: #666;
+  background-color: #f0f0f0;
 }
-.search-baidu p.note {
-  font-size: 0.9em;
-  color: #666;
-  margin-top: 5000px;
+.suggestions {
+  position: fixed;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  z-index: 999999;
+  max-height: 220px;
+  overflow-y: auto;
+  display: none;
+  clip-path: inset(0 round 12px);
+}
+.suggestions div {
+  padding: 6px 15px;
+  cursor: pointer;
+  color: #333;
+  font-size: 0.85em;
+}
+.suggestions div:hover {
+  background: #f0f0f0;
+}
+.suggestions div:first-child {
+  border-radius: 12px 12px 0 0;
+}
+.suggestions div:last-child {
+  border-radius: 0 0 12px 12px;
+}
+.search-baidu .suggestions div:hover {
+  background: #f0f0f0;
 }
 </style>
 <div id="stage">
@@ -95,24 +110,23 @@ header nav a {
                 <header>
                     <div class="layout">
                         <h1>AChengLinux</h1>
-                        <nav>
-                            <a href="about.html">公告</a>               
-                            <a href="https://www.ug.link/acheng9616" class="login-link">我的服务器</a>     
-                            <a href="https://wiki.acheng9616.com/" class="login-link">Wiki</a>
-                        </nav>
                         <!-- 搜索引擎区块：宽度适中，输入框和按钮完美横排 -->
                         <div class="search-baidu">
                           <form action="https://www.baidu.com/s" method="get" target="_blank">
-                            <input type="text" name="wd" placeholder="输入关键词..." required>
-                            <button type="submit">搜索</button>
+                            <input type="text" name="wd" placeholder="输入关键词..." required autocomplete="off">
+                            <button type="submit"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#666" stroke-width="2.5" stroke-linecap="round"><circle cx="10" cy="10" r="7"/><line x1="15" y1="15" x2="21" y2="21"/></svg></button>
                           </form>
                         </div>
+                        <nav>
+                            <a href="https://www.ug.link/acheng9616" class="login-link">我的服务器</a>
+                            <a href="about.html">公告</a>
+                        </nav>
                     </div>
                 </header>
                 <h2><span class="line line-1">我系<span class="moji-1">ACheng</span>啊</span> 
                   <span class="line line-2">识得唔识得啊</span></h2><i class="bg"></i> <i class="hr"></i>
                 <div class="shell-box"><i class="shell-shadow"></i> <i class="shell"><span></span></i></div><a
-                    class="link-reg" href="https://wiki.acheng9616.com/">❤️需要赞助</a><i class="light"></i>
+                    class="link-reg" href="https://wiki.acheng9616.com/">🗃️Wiki</a><i class="light"></i>
             </div>
         </div>
     </article>
@@ -226,6 +240,61 @@ header nav a {
     </footer>
 </div>
 <script src="static/js/c.js?20181010"></script>
+<script>
+(function(){
+  var input = document.querySelector('.search-baidu input');
+  var suggestBox = document.createElement('div');
+  suggestBox.className = 'suggestions';
+  document.body.appendChild(suggestBox);
+  var timer;
+
+  function position(){
+    var rect = input.getBoundingClientRect();
+    suggestBox.style.left = rect.left + 'px';
+    suggestBox.style.top = (rect.bottom + 4) + 'px';
+    suggestBox.style.width = rect.width + 'px';
+  }
+
+  function hide(){ suggestBox.style.display = 'none'; }
+
+  input.addEventListener('input', function(){
+    var val = input.value.trim();
+    clearTimeout(timer);
+    if (!val) { hide(); return; }
+    timer = setTimeout(function(){
+      position();
+      var script = document.createElement('script');
+      script.src = 'https://suggestion.baidu.com/su?wd=' + encodeURIComponent(val) + '&cb=handleBaiduSuggest';
+      window.handleBaiduSuggest = function(data){
+        suggestBox.innerHTML = '';
+        if (data.s && data.s.length) {
+          data.s.forEach(function(item){
+            var div = document.createElement('div');
+            div.textContent = item;
+            div.addEventListener('click', function(){
+              input.value = item;
+              hide();
+              input.form.submit();
+            });
+            suggestBox.appendChild(div);
+          });
+          suggestBox.style.display = 'block';
+          position();
+        } else {
+          hide();
+        }
+        document.head.removeChild(script);
+      };
+      document.head.appendChild(script);
+    }, 150);
+  });
+
+  input.addEventListener('focus', function(){ if (suggestBox.children.length) { position(); suggestBox.style.display = 'block'; } });
+  input.addEventListener('blur', function(){ setTimeout(hide, 200); });
+  window.addEventListener('scroll', function(){ if (suggestBox.style.display !== 'none') position(); });
+  window.addEventListener('resize', function(){ if (suggestBox.style.display !== 'none') position(); });
+})();
+</script>
 <div style="display:none">
     <script type="text/javascript" src="https://tajs.qq.com/stats?sId=22790179" charset="UTF-8"></script>
     <script src="z_stat.php?id=1254420621&web_id=1254420621"></script>

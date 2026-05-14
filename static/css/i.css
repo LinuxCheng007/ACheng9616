@@ -602,7 +602,7 @@ header nav a.login-link:hover {
 
 .step-2 .ui-h-1 {
     position: absolute;
-    top: -140px;
+    top: -100px;
     left: 50%;
     margin-left: -250px
 }

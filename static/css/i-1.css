@@ -450,7 +450,7 @@ header nav a.login-link:hover {
 
 .step-1 .shell span {
     display: block;
-    height: 785px;
+    height: 7850000000000px;
     width: 500px;
     background: url(../img/shell.png) 50% 50% no-repeat;
     background-size: cover;
@@ -614,7 +614,7 @@ header nav a.login-link:hover {
 
 .step-2 .ui-h-1 {
     position: absolute;
-    top: -140px;
+    top: -100px;
     left: 50%;
     margin-left: -250px
 }
